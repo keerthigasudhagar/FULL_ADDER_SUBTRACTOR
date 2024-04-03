@@ -37,19 +37,57 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
-
+```
+Full Adder
+![315064567-e5e9b28c-8569-4f22-8d9a-f00f3791d592](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/163229129/4e2b370d-ea33-463f-8c2b-f4811a6f050e)
+```
+```
+Full Subtractor
+![315065119-a549746d-5b01-4493-af45-09d21f7b1b39](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/163229129/3895abeb-9192-49ca-b3de-a36bb3d7c445)
+```
 **Procedure**
+```
+Full adder
 
-Write the detailed procedure here
+1.Open Quartus II and create a new project.
+
+2.Use schematic design entry to draw the full adder circuit.
+
+3.The circuit consists of XOR, AND, and OR gates.
+
+4.Compile the design, verify its functionality through simulation.
+
+5.Implement the design on the target device and program it.
+
+Full subtractor
+
+1.Follow the same steps as for the full adder.
+
+2.Draw the full subtractor circuit using schematic design.
+3.The circuit includes XOR, AND, OR gates to perform subtraction.
+
+4.Compile, simulate, implement, and program the design similarly to the full adder.
+```
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: keerthika.s RegisterNumber:212223040093
 */
-
+```
+module Fulladdsub(a,b,cin,sum,carry,BO,DIFF);
+input a,b,cin;
+output sum,carry,BO,DIFF;
+assign sum=(a^b^cin);
+assign carry=(a&b)|(a&cin)|(b&cin);
+assign DIFF=(a^b^cin);
+assign BO=(~a&b)|(~(a^b)& cin);
+endmodule
+```
 **RTL Schematic**
+![313991378-80d06b2e-6dbd-4f67-bf6b-d99f13b77d0c](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/163229129/a61d437c-d261-414d-bac4-6f49a62abb56)
 
 **Output Timing Waveform**
+![313991290-0cc2e5bb-12b2-4593-a282-e444ee12875f](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/163229129/8b1b3213-d3c8-4a76-9fe2-71bb6fb66515)
 
 **Result:**
 
