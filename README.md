@@ -39,12 +39,14 @@ Borrow out = A'Bin + A'B + BBin
 **Truthtable**
 
 full adder:
-![318405960-7116d2bf-8e90-4e96-bfd5-d62af11a317a](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/b2463a89-d627-43c0-a189-384393c8c6d1)
+![328084690-e0fff7d1-a2f7-4fa0-b9c4-1a49aee2be8f](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/c1ce60b0-e681-4410-a17d-6e75c2750d79)
 
-Full su![318405667-33d8ba16-9169-40b0-8696-3bb8e5c3a0b7](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/65f03a0a-5476-4805-8104-7af251ced553)
-btractor:
+
+**Full subtractor:**
+![328084783-826f852d-ba60-4cd5-8e91-fd30cf327e8b](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/e41c6f6e-99ef-4e56-9544-3406e91d04ce)
 
 **Procedure**
+
 
 Write the detailed procedure here
 ```
@@ -66,29 +68,17 @@ Write the detailed procedure here
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 ```
-
-## Full_adder
-module fulladd_top(a,b,cin,sum,carry);
-input a,b,cin;
-output sum,carry;
-wire w1,w2,w3,w4;       
-xor(w1,a,b);
-xor(sum,w1,cin);        
-
-and(w2,a,b);
-and(w3,b,cin);
-and(w4,cin,a);
-
-or(carry,w2,w3,w4);
-endmodule 
-
-## Full_subtractor
-module fullsub_top(a,b,Bin,BO,DIFF);
-input a,b,Bin;
-output BO,DIFF;
-assign DIFF = a ^ b ^ Bin;
-  assign BO = (a & b) | ((a ^ b) & Bin);
+module fulladdsub(a,b,c,sum,carry,BO,DIFF);
+input a,b,c;
+output sum,carry,BO,DIFF;
+assign sum=a^b^c;
+assign carry= a&b | a&c | b&c;
+wire a0;
+not (a0,a);
+assign BO= b&c | a0&c | a0&b;
+assign DIFF=a^b^c;
 endmodule
+
 
 
 Developed by: keerthika.s
@@ -96,14 +86,12 @@ RegisterNumber: 212223040093
 ```
 
 **RTL Schematic**
-![318405073-2e45d893-4f83-4a98-8bc2-d0d30b70e7e2](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/1675f973-b683-45e1-8bcd-fe31f2aefc7f)
+![328085106-99cb12ac-0a5a-4fb9-b02c-d5a25572e54d](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/4a38135e-c336-42c7-bfa1-7869fd2dd2e9)
+
 
 **Output Timing Waveform**
-full adder
-![318405216-5d286c1d-e62e-454a-a389-00ba2c2a91fc](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/fd9d4eb9-26b6-4929-b1ad-c035345efad1)
- 
-full subtractor
-![318405344-03d5d030-815e-4847-a976-2fd282cf0333](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/a98856b7-b618-4307-b697-95ce35b724f6)
+
+![328085178-f07e90dc-cbcd-4dee-865d-87c12d8347c5](https://github.com/keerthigasudhagar/FULL_ADDER_SUBTRACTOR/assets/163229129/f1b6da80-4248-4e8a-a712-28c237f001f9)
 
 
 **Result:**
